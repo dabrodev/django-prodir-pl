@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
 
-{% block title %}{{ profile.user.get_full_name }} {{ block.super }}{% endblock %}
+{% block title %}Panel{{ block.super }}{% endblock %}
 
 {% block content%}
          <section id="about">
@@ -10,16 +10,22 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
                                 <h2>
-                                Edycja: {{ profile.user.get_full_name }}
+                                Panel
                                 </h2>
-                                <p>									
-                                	<form role="form" action="" method="post">
-                                        {% csrf_token %}
-                                        {{ form.as_p }}
-                                        <button type="submit">Submit</button>
-                                    </form>
+                                {% if user == request.user %}
+                                <h3>Witaj {{ user.get_full_name }}  </h3>
+                                <p>
+									Opis: {{ profile.description}}  
+                                  
                                 </p>
-                          
+                                <p>  Miasto:  {{ profile.city }}</p>
+                              
+                                
+                                    <a href="{% url 'profiles:edit' pk=profile.pk%}">Przejdź do edycji profilu ->> </a>
+                                
+                                {% endif %}
+
+
                             </div>
                             
                         </div>

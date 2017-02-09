@@ -8,7 +8,12 @@ from .models import Profile
 class ProfileForm(ModelForm):
 	class Meta:
 		model = Profile
-		fields = ('description',)
+		fields = ('description','city')
+
+		labels = {
+            "description": "Opis",
+            "city": "Miasto",
+        }
 
 
 class AccountForm(UserChangeForm):

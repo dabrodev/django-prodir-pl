@@ -25,14 +25,14 @@ SECRET_KEY = '@u$vnl+tuai47strr+11^l(*snk96@*axii^qv%-hav+us2li!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['boiling-stream-48850.herokuapp.com']
+ALLOWED_HOSTS = ['boiling-stream-48850.herokuapp.com', '127.0.0.1',]
 
 DEFAULT_FROM_EMAIL='admin@damiandab.com' # or webmaster@servername
 SERVER_EMAIL='admin@damiandab.com' # or 'root@servername'
 EMAIL_HOST = 'smtp.elasticemail.com'
 EMAIL_HOST_USER = 'dabdamian@gmail.com'
 EMAIL_MAIN = 'admin@damiandab.com'
-EMAIL_HOST_PASSWORD = 'd8ed8abf-a911-4b65-9357-1e3b35eeb'
+EMAIL_HOST_PASSWORD = 'd8ed8abf-a911-4b65-9357-1e3b35eeb00b'
 EMAIL_PORT = 2525
 EMAIL_USER_TLS = True
 

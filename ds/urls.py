@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic import TemplateView, RedirectView
 
 from . import views
 
@@ -23,8 +24,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^profiles/', include('profiles.urls', namespace='profiles')),
+    url(r'^accounts/profile/$', RedirectView.as_view(pattern_name='panel', permanent=False)),
     url(r'^$', views.home, name='home'),
     url(r'^about/$', views.about, name='about'),
+    url(r'^panel/$', views.panel, name='panel'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
