@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Doradcy {{ block.super }}{% endblock %}
+
+{% block content%}
+         <section id="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
+                                <h2>
+                                Doradcy
+                                </h2>
+
+
+                                <p>
+                                    {% for profile in profiles %}
+                                    <div class="col-md-3 col-sm-6">
+										<h3><a href="{% url 'profiles:detail' pk=profile.pk %}">{{ profile.user.get_full_name }}</a></h3>
+										<p>{{ profile.description|truncatewords_html:22 }}</p>
+									</div>	
+										
+										
+
+                                    {% endfor %}
+                                </p>
+                          
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </section> <!-- /#about -->
+{% endblock %}
