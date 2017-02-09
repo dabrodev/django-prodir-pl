@@ -8,4 +8,4 @@ python3-openid==3.0.10
 requests==2.13.0
 requests-oauthlib==0.7.0
 whitenoise==3.3.0
-psycopg==2.6.2
+psycopg2==2.6.2
