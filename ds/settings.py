@@ -27,12 +27,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['boiling-stream-48850.herokuapp.com', '127.0.0.1',]
 
+
+import os
+EM_SECRET_KEY = os.environ["EM_SECRET_KEY"]
+
+#heroku config:set SOME_SECRET_KEY=...
+
 DEFAULT_FROM_EMAIL='admin@damiandab.com' # or webmaster@servername
 SERVER_EMAIL='admin@damiandab.com' # or 'root@servername'
 EMAIL_HOST = 'smtp.elasticemail.com'
 EMAIL_HOST_USER = 'dabdamian@gmail.com'
 EMAIL_MAIN = 'admin@damiandab.com'
-EMAIL_HOST_PASSWORD = 'd8ed8abf-a911-4b65-9357-1e3b35eeb00b'
+EMAIL_HOST_PASSWORD = EM_SECRET_KEY
 EMAIL_PORT = 2525
 EMAIL_USER_TLS = True
 
