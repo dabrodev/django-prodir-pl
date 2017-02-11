@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^accounts/profile/$', RedirectView.as_view(pattern_name='panel', permanent=False)),
     url(r'^$', views.home, name='home'),
     url(r'^about/$', views.about, name='about'),
+    url(r'^kontakt/$', views.contact, name='contact'),
     url(r'^panel/$', views.panel, name='panel'),
 ]
 

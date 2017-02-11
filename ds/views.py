@@ -11,6 +11,9 @@ def home(request):
 def about(request):
 	return render(request, 'about.html')
 
+def contact(request):
+	return render(request, 'contact.html')	
+
 @login_required
 def panel(request):
 	profile = request.user.profile
