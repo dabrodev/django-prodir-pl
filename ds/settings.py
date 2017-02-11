@@ -31,6 +31,8 @@ ALLOWED_HOSTS = ['boiling-stream-48850.herokuapp.com', '127.0.0.1',]
 import os
 EM_SECRET_KEY = os.environ["EM_SECRET_KEY"]
 
+#venv activate add: export EM_SECRET_KEY=...
+
 #heroku config:set SOME_SECRET_KEY=...
 
 DEFAULT_FROM_EMAIL='admin@damiandab.com' # or webmaster@servername
