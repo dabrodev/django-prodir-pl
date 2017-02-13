@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput
 
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
@@ -15,6 +15,7 @@ class ProfileForm(ModelForm):
             "city": "Miasto",
         }
 
+
 	def clean_image(self):
 		image = self.cleaned_data.get('avatar',False)
 		if image:
@@ -29,3 +30,7 @@ class AccountForm(UserChangeForm):
 	class Meta:
 		model = User
 		fields = ('first_name','last_name','password')
+
+		widgets = {
+            'first_name': TextInput(attrs={'placeholder': 'Imie'}),
+        }

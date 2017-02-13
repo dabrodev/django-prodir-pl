@@ -1,4 +1,4 @@
-{% extends "account/base.html" %}
+{% extends "base.html" %}
 {% load static from staticfiles %}
 {% load i18n %}
 {% load account socialaccount %}
@@ -13,7 +13,7 @@
                         <div class="col-md-6 col-sm-6">
                             <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
                                 <h2>
-                                {% trans "Sign In" %}
+                              <!--{% trans "Sign In" %}--> Logowanie
                                 </h2>
 
                                 {% get_providers as socialaccount_providers %}
@@ -36,8 +36,8 @@
                                 {% include "socialaccount/snippets/login_extra.html" %}
 
                                 {% else %}
-                                <p>{% blocktrans %}If you have not created an account yet, then please
-                                <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+                                <p><!--{% blocktrans %}If you have not created an account yet, then please
+                                <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}--> Jeśli nie posiadasz jeszcze konta, <a href="{{ signup_url }}">zarejestruj się</a>.</p>
                                 {% endif %}
 
                                 <form class="login" method="POST" action="{% url 'account_login' %}">

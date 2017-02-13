@@ -13,6 +13,9 @@ class Profile(models.Model):
 	def __str__(self):
 		return self.user.get_full_name()
 
+class Review(models.Model): 
+	pass		
+
 def create_profile(sender, **kwargs):
 	if kwargs['created']:
 		profile = Profile.objects.create(user=kwargs['instance'])
