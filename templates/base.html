@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
-        <title>Znajdź mi DOM</title>
+        <title>Znajdź Mi DOM</title>
         <meta name="description" content="Wybierz doradcę, wypełnij formularz i otrzymaj najlepsze oferty. Tylko profesjonalny doradca zapewni Tobie pewny i bezpieczny zakup nieruchomośći.">
         <!-- Mobile Specific Metas
         ================================================== -->
@@ -126,7 +126,9 @@
             <footer id="footer">
                 <div class="container">
                     <div class="col-md-8">
-                        <p class="copyright">&copy; <span>2017</span> . Znajdz mi dom.
+                        <p class="copyright">&copy; <span>2017</span> .   <a href="{% url 'home' %}" >
+                            <span style="color: #000">ZNAJDŹ</span><span style="color: #fd5e29">MI</span><span style="color: #000">DOM.</span>
+                        </a> Wszelkie prawa zastrzeżone.
                     </div>
                     <div class="col-md-4">
                         <!-- Social Media -->
