@@ -6,6 +6,7 @@ from django.db.models.signals import post_save
 
 class Profile(models.Model):
 	user = models.OneToOneField(User, blank=True, null=True)
+	avatar = models.ImageField(upload_to='avatar', blank=True)
 	description = models.TextField()
 	city = models.CharField(max_length=100)
 

@@ -31,9 +31,27 @@ ul li {
 h2 {
   font-size: 26px;
 }
+
+a {
+  color: #fd5e29;
+
+}
+
 a:hover {
+  color: #92130a;
   text-decoration: none;
 }
+
+a.profil-link {
+
+  font-weight: 400;
+}
+
+img#profil {
+  margin-top: 20px;
+}
+
+
 .section-heading {
   text-align: center;
   margin-bottom: 65px;

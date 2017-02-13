@@ -8,12 +8,21 @@ from .models import Profile
 class ProfileForm(ModelForm):
 	class Meta:
 		model = Profile
-		fields = ('description','city')
+		fields = ('avatar', 'description','city', )
 
 		labels = {
             "description": "Opis",
             "city": "Miasto",
         }
+
+	def clean_image(self):
+		image = self.cleaned_data.get('avatar',False)
+		if image:
+		 if image._size > 1*512*512:
+		       raise ValidationError("Image file too large ( > 0.5mb )")
+		 return image
+		else:
+		 raise ValidationError("Couldn't read uploaded image")
 
 
 class AccountForm(UserChangeForm):

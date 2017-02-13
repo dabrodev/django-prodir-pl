@@ -24,16 +24,14 @@ def edit_profile(request, pk):
 
 	if profile.user != request.user:
 		raise Http404
-
-	form_class = ProfileForm
-    
+		
 	if request.method == 'POST':
 
-	    form = form_class(data=request.POST, instance=profile)
+	    form = ProfileForm(request.POST, request.FILES, instance=profile)
 	    
 	    if form.is_valid():
 	    	form.save()
 	    	return redirect('profiles:detail', pk=profile.pk)
 	else:
-	    form = form_class(instance=profile)
+	    form = ProfileForm(instance=profile)
 	return render(request, 'profiles/edit_profile.html', {'profile': profile, 'form': form,})
