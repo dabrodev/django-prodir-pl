@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
     'profiles'
 ]
 
@@ -168,7 +169,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-
+# Crispy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
 # Static files (CSS, JavaScript, Images)

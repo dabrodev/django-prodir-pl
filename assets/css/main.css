@@ -51,6 +51,9 @@ img#profil {
   margin-top: 20px;
 }
 
+#about .block p#error_1_id_avatar.help-block {
+  color: #a94442;
+}
 
 .section-heading {
   text-align: center;
