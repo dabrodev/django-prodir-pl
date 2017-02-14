@@ -1,5 +1,5 @@
 from django.forms import ModelForm, TextInput
-
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 
@@ -14,16 +14,6 @@ class ProfileForm(ModelForm):
             "description": "Opis",
             "city": "Miasto",
         }
-
-
-	def clean_image(self):
-		image = self.cleaned_data.get('avatar',False)
-		if image:
-		 if image._size > 1*512*512:
-		       raise ValidationError("Image file too large ( > 0.5mb )")
-		 return image
-		else:
-		 raise ValidationError("Couldn't read uploaded image")
 
 
 class AccountForm(UserChangeForm):

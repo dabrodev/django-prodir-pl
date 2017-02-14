@@ -29,7 +29,7 @@
         <!-- responsive css -->
         <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
         
-        <!-- Javascript Files
+        <!-- JavaScript Files
         ================================================== -->
         <!-- modernizr js -->
         <script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>
@@ -101,6 +101,17 @@
                 <!-- /main nav -->
             </div>
         </header>
+
+            {% if messages %}
+    <div>
+      <strong>Messages:</strong>
+      <ul>
+    {% for message in messages %}
+    <li>{{message}}</li>
+    {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
         
 {% block content %} {% endblock %}
 
