@@ -15,7 +15,7 @@
                                 {% if user == request.user %}
                                 <h3>Witaj {{ user.get_full_name }}  </h3>
                                 <p>
-									Zakładając konto jako doradca nieruchmości na platformie ZnajdźMiDom uzyskujesz do dyspozycji profil doradcy, formularz kontaktowy oraz system opini, które mogą być dodane przez klientów.
+									Zakładając konto jako doradca nieruchmości na platformie ZnajdźMiDom otrzymujesz do dyspozycji profil doradcy, formularz kontaktowy oraz system opini, które mogą być dodane przez klientów.
                                 </p>
                                 <p>
                                     Tylko pełne profile zawierające komplet danych zostaną wyświetlone w dziale Doradcy, dlatego polecamy jak najszybsze wypełnienie profilu. 
@@ -47,7 +47,7 @@
                                 <p>Ten doradca nie otrzymał jeszcze opini.</p>
                                 {% endif %}
                                   <a href="{% url 'profiles:detail' pk=profile.pk %}" class="btn btn-block btn-default">Zobacz wszystkie opinie na profilu</a>
-                                <h3>Zapytania kontaktowe</h3>
+                                <h3>Wiadomości/h3>
                                 <p>W przygotowaniu...</p>
                             </div>    
                         </div>
