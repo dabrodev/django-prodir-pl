@@ -1,0 +1,19 @@
+{% load account %}
+{% user_display user as user_display %}
+{% load i18n %}
+{% autoescape off %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+
+WItaj w imieniu {{ site_name }}!
+
+Otrzymujesz ten e-mail, ponieważ na {{ site_domain }} został podany niniejszy adres e-mail, aby powiązać go ze swoim kontem.
+
+Jeżeli to prawda. Kliknij na link, aby go aktywować:
+{{ activate_url }}
+{% endblocktrans %}{% endautoescape %}
+
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+Dziękujemy!
+Team {{ site_name }}!
+
+{{ site_domain }}{% endblocktrans %}

@@ -257,11 +257,11 @@ img#profil {
   margin-right: 10px;
 }
 #about {
-  padding: 110px 0;
+  padding: 30px 0 30px;
 }
 
 #about.pico {
-  padding: 110px 0 0;
+  padding: 30px 0 0;
 }
 #about .block {
   padding: 20px 30px 0 30px;
@@ -1113,4 +1113,88 @@ article {
   padding: 8px 0;
   color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+/* Testimonials */
+
+.quote {
+    color: rgba(0,0,0,.1);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/*-------------------------------*/
+/*    Carousel Fade Transition   */
+/*-------------------------------*/
+
+#fade-quote-carousel.carousel {
+  padding-bottom: 60px;
+}
+#fade-quote-carousel.carousel .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+      -ms-transition-property: opacity;
+          transition-property: opacity;
+}
+#fade-quote-carousel.carousel .carousel-inner .active {
+  opacity: 1;
+  -webkit-transition-property: opacity;
+      -ms-transition-property: opacity;
+          transition-property: opacity;
+}
+#fade-quote-carousel.carousel .carousel-indicators {
+  bottom: 10px;
+}
+#fade-quote-carousel.carousel .carousel-indicators > li {
+  background-color: #fd5e29;
+  border: none;
+}
+
+#fade-quote-carousel.carousel .carousel-indicators > li.active {
+  background-color: #000; 
+
+} 
+
+#fade-quote-carousel blockquote {
+    text-align: center;
+    border: none;
+}
+/*#fade-quote-carousel .profile-circle {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 100px;
+} */
+
+/* img review */
+
+img.review {
+  margin-top: 70px;
+}
+
+/* messages */
+
+#messages {
+  margin-top: 90px;
+}
+
+.alert {
+
+  margin-top: 20px;
+}
+
+
+/* button panel */
+#top-bar .main-menu li > a.dropdown-toggle.btn-panel {
+
+  background-color: #fd5e29;
+  color: #fff;
+}
+
+/* profile list */
+
+.profile-list-item {
+
+  min-height: 550px;
 }

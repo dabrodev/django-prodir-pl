@@ -18,3 +18,7 @@ def contact(request):
 def panel(request):
 	profile = request.user.profile
 	return render(request, 'panel.html', {'user': request.user,'profile': profile,})
+
+def base(request):
+	profile = request.user.profile
+	return render(request, 'base.html', {'user': request.user,'profile': profile,})

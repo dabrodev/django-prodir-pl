@@ -3,17 +3,23 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 
-from .models import Profile
+from .models import Profile, Review
 
 class ProfileForm(ModelForm):
 	class Meta:
 		model = Profile
-		fields = ('avatar', 'description','city', )
+		fields = ('avatar', 'description','city')
 
 		labels = {
             "description": "Opis",
             "city": "Miasto",
         }
+
+class ReviewForm(ModelForm):
+	class Meta:
+		model = Review
+		fields = ('name', 'email', 'company', 'position', 'message')
+
 
 
 class AccountForm(UserChangeForm):

@@ -16,7 +16,7 @@
 
                                 <p>
                                     {% for profile in profiles %}
-                                    <div class="col-md-3 col-sm-6">
+                                    <div class="col-md-3 col-sm-6 profile-list-item">
                                     {% if profile.avatar %}
                                     <a href="{% url 'profiles:detail' pk=profile.pk %}">
     									<img src="{{ profile.avatar.url}}" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=300></a>
@@ -29,10 +29,15 @@
                                    
                               		{% endif %}    
 										<h3><a href="{% url 'profiles:detail' pk=profile.pk %}">{{ profile.user.get_full_name }}</a></h3>
-										<p>{{ profile.description|truncatewords_html:22 }}
-										<br>
+                                        {% if profile.city %}
+                                        <h4> {{ profile.city }}</h4>
+                                        {% endif %}
+										
+                                        <p>{{ profile.description|truncatewords_html:22 }}</p>
+                                       
+                                        <br>
 										<a href="{% url 'profiles:detail' pk=profile.pk %}" class="profil-link">Przejź do profilu doradcy</a>
-										</p>
+										
 									
 
 

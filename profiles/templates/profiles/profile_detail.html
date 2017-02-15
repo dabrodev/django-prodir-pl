@@ -1,48 +1,130 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
-
+{% load crispy_forms_tags %}
 {% block title %}{{ profile.user.get_full_name }} {{ block.super }}{% endblock %}
 
 {% block content%}
-         <section id="about">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
-                               
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
 
-                                <div class="col-md-3 col-sm-3">
+                <div class="block wow fadeInDown" data-wow-delay=".2s" data-wow-duration="500ms">
+           
+                    
+                
+                    <div class="col-md-3 col-sm-3">
 
-                                {% if profile.avatar %}
-                                    
-    										<img src="{{ profile.avatar.url}}" id="profil" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=300>
-                                      
-                                    
-                                {% else %}
-                                    
-                                        <img src="{% static '/images/avatar-default.jpg' %}" id="profil" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=300>
-                                    
-                                   
-                                {% endif %}    
-                                </div>
-                                <div class="col-md-9 col-sm-9">
-                                        <h3> {{ profile.user.get_full_name }} </h3>
-                                        <h4> {{ profile.city }} </h4>
-                                    <p>
-
-                                        {{ profile.description}}
-                                      
-                                    </p>
-                                    <p>{% if user == profile.user %}
-                                    <a href="{% url 'profiles:edit' pk=profile.pk%}">Edytuj opis</a>
-                                {% endif %}  </p>
-                                </div>      
-                                  
-                            </div>
-                            
-                        </div>
+                    {% if profile.avatar %}
                         
+								<img src="{{ profile.avatar.url}}" id="profil" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=300>
+                          
+                        
+                    {% else %}
+                        
+                            <img src="{% static '/images/avatar-default.jpg' %}" id="profil" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=300>
+                        
+                       
+                    {% endif %}  
+                    <div style="margin-top: 15px; ">
+                        {% if user == profile.user %}
+                        <a href="{% url 'profiles:edit' pk=profile.pk%}" class="btn btn-block btn-default" role="button">Edytuj opis</a>
+                        {% endif %}  
+                        <br>
+                        <a href="{% url 'profiles:add_review' pk=profile.pk %}" class="btn btn-block btn-default" role="button"> Dodaj opinię</a>  
+
                     </div>
+              
+                    </div>
+                    <div class="col-md-9 col-sm-9">
+                        <h3> {{ profile.user.get_full_name }} </h3>
+                        {% if profile.city %}
+                        <h4> {{ profile.city }} </h4>
+                        {% endif %}
+                        {% if profile.description %}
+                        <p>
+                            {{ profile.description}}
+                        </p>
+                        {% endif %}
+
+                        <!-- Opinie -->
+                        <h3 >Opinie({{ profile.get_approved_reviews.count }}):</h3>
+                        {% if profile.get_approved_reviews %}
+
+                        <div class="quote"><i class="fa fa-quote-left fa-4x"></i></div>
+                        <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="10000">
+                          <!-- Carousel indicators -->
+                            <ol class="carousel-indicators">
+                            {% for review in profile.get_approved_reviews %}
+                                
+                                    {% if forloop.first %}
+                                        <li data-target="#fade-quote-carousel" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+                                    {% else %}
+                                        <li data-target="#fade-quote-carousel" data-slide-to="{{ forloop.counter0 }}"></li>
+                                    {% endif %}
+                                     
+                            {% endfor %}
+
+                            </ol>
+                            <!-- Carousel items -->
+                            <div class="carousel-inner">
+                            {% for review in profile.get_approved_reviews %}
+                                
+                                    {% if forloop.first %}
+                                    <div class="active item">
+                                      
+                                        <blockquote>
+                                            <em>{{ review.message }}</em>
+                                            <br><strong>{{ review.name }}</strong>
+                                        </blockquote>   
+                                    </div>
+
+                                    {% else %}
+                                     <div class="item">
+                                      
+                                        <blockquote>
+                                            <em>{{ review.message }}</em>
+                                            <br><strong>{{ review.name }}</strong>
+                                        </blockquote>   
+                                    </div>
+                                    {% endif %}
+                                  
+                            {% endfor %}
+              
+                            </div>
+                        </div>
+                        {% else %}
+                         <p>Ten doradca nie otrzymał jeszcze opini.</p>
+                        {% endif %}
+             
+                    </div>      
+                      
                 </div>
-            </section> <!-- /#about -->
+                
+            </div>
+            
+        </div>
+    </div>
+</section> <!-- /#about -->
+
+<section id="carousel">                 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-md-offset-3">
+             
+               
+
+               <!-- Review -->
+             
+               
+          
+            </div>                          
+        </div>
+    </div>
+</section>
 {% endblock %}
+
+<!-- http://bootsnipp.com/snippets/featured/testimonial-carousel -->
+<!-- http://codepen.io/danielmdesigns/pen/yNzJwB -->
+<!-- https://www.codementor.io/jadianes/get-started-with-django-building-recommendation-review-app-du107yb1a -->
+<!-- https://github.com/artscoop/django-approval -->
