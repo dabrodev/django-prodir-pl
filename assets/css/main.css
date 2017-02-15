@@ -1198,3 +1198,8 @@ img.review {
 
   min-height: 550px;
 }
+
+#about .block p.profile-description-list {
+    margin-bottom: 0;
+
+}

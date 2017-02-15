@@ -9,7 +9,7 @@ from .forms import ProfileForm, ReviewForm
 
 # Create your views here.
 def profile_list(request):
-	profiles = Profile.objects.all()
+	profiles = Profile.objects.filter(city__gt='', description__gt='')
 	return render(request, 'profiles/profile_list.html', {
 		'profiles': profiles, 
 		})

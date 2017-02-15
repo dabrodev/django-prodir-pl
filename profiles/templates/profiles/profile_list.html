@@ -33,9 +33,9 @@
                                         <h4> {{ profile.city }}</h4>
                                         {% endif %}
 										
-                                        <p>{{ profile.description|truncatewords_html:22 }}</p>
+                                        <p class="profile-description-list">{{ profile.description|truncatewords_html:22 }}</p>
                                        
-                                        <br>
+                                       
 										<a href="{% url 'profiles:detail' pk=profile.pk %}" class="profil-link">Przejź do profilu doradcy</a>
 										
 									
