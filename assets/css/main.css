@@ -51,6 +51,14 @@ img#profil {
   margin-top: 20px;
 }
 
+
+/* navbar */
+
+.navbar-nav>li>.dropdown-menu {
+  width: 100%;
+}
+
+
 #about .block p#error_1_id_avatar.help-block {
   color: #a94442;
 }

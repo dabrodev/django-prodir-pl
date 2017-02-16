@@ -1,2 +1,2 @@
 {% load i18n %}
-{% blocktrans %}Wylogowanie zakończone pomyślnie.{% endblocktrans %}
+{% blocktrans %}Wylogowanie ukończone pomyślnie.{% endblocktrans %}
