@@ -30,8 +30,8 @@ ALLOWED_HOSTS = ['boiling-stream-48850.herokuapp.com', '127.0.0.1',]
 
 import os
 EM_SECRET_KEY = os.environ["EM_SECRET_KEY"]
-access_key = os.environ[access_key]
-secret_key = os.environ[secret_key]
+access_key = os.environ["access_key"]
+secret_key = os.environ["secret_key"]
 
 #venv activate add: export EM_SECRET_KEY=...
 
