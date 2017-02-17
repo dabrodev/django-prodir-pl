@@ -30,6 +30,8 @@ ALLOWED_HOSTS = ['boiling-stream-48850.herokuapp.com', '127.0.0.1',]
 
 import os
 EM_SECRET_KEY = os.environ["EM_SECRET_KEY"]
+access_key = os.environ[access_key]
+secret_key = os.environ[secret_key]
 
 #venv activate add: export EM_SECRET_KEY=...
 
@@ -192,9 +194,6 @@ MEDIA_URL = '/media/'
 os.environ['S3_USE_SIGV4'] = 'True'
 AWS_S3_HOST = 's3.eu-central-1.amazonaws.com'
 
-
-access_key = 'AKIAJ7PZBS7VSUZ27E3Q'
-secret_key = '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'
 
 AWS_ACCESS_KEY_ID = access_key
 AWS_SECRET_ACCESS_KEY = secret_key
