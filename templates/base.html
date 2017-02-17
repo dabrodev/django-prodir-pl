@@ -90,6 +90,20 @@
                                     </ul>
                                 </div>
                                 </li>
+                                <li>
+                                    {% if user.profile.avatar %}
+                        
+                                <img src="{{ user.profile.avatar.url}}" id="profil-nav" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=52>
+                          
+                        
+                    {% else %}
+                        
+                            <img src="{% static '/images/avatar-default.jpg' %}" id="profil-nav" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=52>
+                        
+                       
+                    {% endif %}  
+
+                                </li>
 							    {% else %}
 							    <li><a href="{% url 'account_login' %}">Logowanie</a></li>
 							    <li><a href="{% url 'account_signup' %}">Rejestracja</a></li>
