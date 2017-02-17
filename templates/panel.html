@@ -8,10 +8,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
+                            <div class="block wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
+                                <h2>Panel</h2>
+                            </div>
+                        </div>
+                    </div>        
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
                             <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
-                                <h2>
-                                Panel
-                                </h2>
+                               
                                 {% if user == request.user %}
                                 <h3>Witaj {{ user.get_full_name }}  </h3>
                                 <p>
@@ -35,7 +40,7 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="block wow fadeInRight" data-wow-delay=".3s" data-wow-duration="500ms">
-                                <h2>...</h2>
+                               
                                 <h3 >Opinie({{ profile.get_approved_reviews.count }})</h3>
                                 {% if profile.get_approved_reviews %}
                                     {% for review in profile.get_approved_reviews|slice:":3" %}
