@@ -612,8 +612,8 @@ img.review {
 /* Filter Buttons */
 .well {
     border-radius: 0;
-    -webkit-box-shadow: 0;
-    box-shadow: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .filter-btns {
