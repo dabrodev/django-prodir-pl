@@ -76,8 +76,8 @@
                             <li>
                                 <a href="{% url 'home' %}" >Start</a>
                             </li>
-                            <li><a href="{% url 'about' %}">O nas</a></li>
                             <li><a href="{% url 'profiles:list' %}">Doradcy</a></li>
+                            <li><a href="{% url 'about' %}">O nas</a></li>
                             <li><a href="{% url 'contact' %}">Kontakt</a></li>
                             {% if user.is_authenticated %}
 							  <li class="dropdown">

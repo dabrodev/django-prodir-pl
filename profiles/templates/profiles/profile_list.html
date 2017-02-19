@@ -2,11 +2,12 @@
 {% load static from staticfiles %}
 {% load crispy_forms_tags %}
 {% load widget_tweaks %}
+{% load thumbnail %}
 
 {% block title %}Doradcy {{ block.super }}{% endblock %}
 
 {% block content%}
-<section id="about">
+<section id="page">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -50,11 +51,11 @@
                         <div class="col-md-3 col-sm-6 profile-list-item">
                         {% if profile.avatar %}
                         <a href="{% url 'profiles:detail' pk=profile.pk %}">
-                            <img src="{{ profile.avatar.url}}" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=300></a>
+                            <img src="{{ profile.avatar|thumbnail_url:'avatar' }}" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=400></a>
                         
                         {% else %}
                         <a href="{% url 'profiles:detail' pk=profile.pk %}">
-                            <img src="{% static 'images/avatar-default.jpg' %}"  class="img-responsive" alt="{{ profile.user.get_full_name }}" width=300>
+                            <img src="{% static 'images/avatar-default.jpg' %}"  class="img-responsive" alt="{{ profile.user.get_full_name }}" width=400>
                         </a>
                        
                         {% endif %}    

@@ -78,6 +78,7 @@ INSTALLED_APPS = [
     'storages',
     'django_filters',
     'widget_tweaks',
+    'easy_thumbnails',
 ]
 
 SITE_ID = 1
@@ -177,6 +178,14 @@ USE_TZ = True
 # Crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
+THUMBNAIL_ALIASES = {
+    '': {
+        'avatar': {'size': (400, 400), 'crop': True},
+    },
+}
+
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
@@ -214,6 +223,8 @@ MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
 MEDIA_ROOT = MEDIA_URL
 STATIC_URL = S3_URL + 'static/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
+THUMBNAIL_DEFAULT_STORAGE = DEFAULT_FILE_STORAGE
 
 import datetime
 
