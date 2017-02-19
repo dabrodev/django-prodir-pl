@@ -60,7 +60,7 @@ px      68    160    252    */
     padding: 6px 8px;
   }
   #hero-area {
-    padding: 140px 0;
+    padding: 20px 0 60px;
   }
   #hero-area .btn {
     margin-top: 8px;
@@ -107,6 +107,16 @@ px      68    160    252    */
   .navbar-collapse {
     background: #333333;
   }
+
+  .pages {
+
+    padding: 20px 0 0;
+  }
+
+  #call-to-action {
+    padding: 30px 0 60px;
+  }
+
   #top-bar .main-menu li > a {
     color: #fff;
     padding: 21px 10px;
