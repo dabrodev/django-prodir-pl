@@ -34,7 +34,7 @@ class ReviewForm(ModelForm):
 class AccountForm(UserChangeForm):
 	class Meta:
 		model = User
-		fields = ('first_name','last_name','email', 'password')
+		fields = ('first_name','last_name', 'password')
 
 		widgets = {
             'first_name': TextInput(attrs={'placeholder': 'Imię'}),
