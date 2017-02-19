@@ -76,6 +76,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'profiles',
     'storages',
+    'django_filters',
+    'widget_tweaks',
 ]
 
 SITE_ID = 1

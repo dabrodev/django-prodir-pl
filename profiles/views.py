@@ -5,14 +5,14 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 
 from .models import Profile, Review
-from .forms import ProfileForm, ReviewForm
+from .forms import ProfileForm, AccountForm, ReviewForm
+from .filters import ProfileFilter
 
 # Create your views here.
 def profile_list(request):
-	profiles = Profile.objects.filter(city__gt='', description__gt='')
-	return render(request, 'profiles/profile_list.html', {
-		'profiles': profiles, 
-		})
+	profile_list = Profile.objects.filter(city__gt='', description__gt='')
+	profile_filter = ProfileFilter(request.GET, queryset=profile_list)
+	return render(request, 'profiles/profile_list.html', {'filter': profile_filter})
 
 def profile_detail(request, pk):
 	profile = get_object_or_404(Profile, pk=pk)
@@ -22,21 +22,25 @@ def profile_detail(request, pk):
 def edit_profile(request, pk):
 	
 	profile = Profile.objects.get(pk=pk)
+	user = request.user
 
 	if profile.user != request.user:
 		raise Http404
 
 	if request.method == 'POST':
 
-	    form = ProfileForm(request.POST, request.FILES, instance=profile)
+	    p = ProfileForm(request.POST, request.FILES, instance=profile)
+	    u = AccountForm(request.POST, instance=user )
 	    
-	    if form.is_valid():
-	    	form.save()
+	    if p.is_valid() and u.is_valid():
+	    	p.save()
+	    	u.save()
 	    	messages.success(request, 'Profil zaktualizowany')
 	    	return redirect('profiles:detail', pk=profile.pk)
 	else:
-	    form = ProfileForm(instance=profile)
-	return render(request, 'profiles/edit_profile.html', {'profile': profile, 'form': form,})
+	    p = ProfileForm(instance=profile)
+	    u = AccountForm(instance=user)
+	return render(request, 'profiles/edit_profile.html', {'profile': profile, 'form_profile': p, 'form_user': u})
 
 def add_review(request, pk):
 	profile = get_object_or_404(Profile, pk=pk)
@@ -69,4 +73,4 @@ def add_review(request, pk):
 	else:
 		form = ReviewForm(instance=profile)         
 
-	return render(request, 'profiles/review.html', {'profile': profile, 'form': form})	
+	return render(request, 'profiles/review.html', {'profile': profile, 'form': form})

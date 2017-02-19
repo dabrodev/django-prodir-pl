@@ -178,7 +178,7 @@ img#profil {
   background-attachment: fixed;
   padding: 150px 0 100px;
   color: #fff;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  /*box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);*/
   position: relative;
 }
 #hero-area:before {
@@ -590,14 +590,14 @@ img.review {
 }
 
 
-/* button panel */
+/* Button Panel */
 #top-bar .main-menu li > a.dropdown-toggle.btn-panel {
 
   background-color: #fd5e29;
   color: #fff;
 }
 
-/* profile list */
+/* Profile List */
 
 .profile-list-item {
 
@@ -607,4 +607,27 @@ img.review {
 #about .block p.profile-description-list {
     margin-bottom: 0;
 
+}
+
+/* Filter Buttons */
+.well {
+    border-radius: 0;
+    -webkit-box-shadow: 0;
+    box-shadow: 0;
+}
+
+.filter-btns {
+  padding-top: 20px;
+}
+
+.btn.btn-default.orange {
+    background-color: #fd5e29;
+    color: #fff;
+    border-radius: 0;
+    border: none;
+    margin-top: 5px;
+}
+
+.btn.btn-default.orange:hover {
+    background-color: #fd3a2f;
 }

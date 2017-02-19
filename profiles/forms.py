@@ -11,8 +11,8 @@ class ProfileForm(ModelForm):
 		fields = ('avatar', 'description','city')
 
 		labels = {
-            "description": "Opis",
-            "city": "Miasto",
+            'description': 'Opis',
+            'city': 'Miasto',
         }
 
 class ReviewForm(ModelForm):
@@ -20,13 +20,22 @@ class ReviewForm(ModelForm):
 		model = Review
 		fields = ('name', 'email', 'company', 'position', 'message')
 
+		labels = {
+			'name': 'Imię i Nazwisko',
+			'email': 'E-Mail',
+			'company': 'Firma',
+			'position': 'Rola w firmie',
+			'message': 'Opinia',
+
+		}
+
 
 
 class AccountForm(UserChangeForm):
 	class Meta:
 		model = User
-		fields = ('first_name','last_name','password')
+		fields = ('first_name','last_name','email', 'password')
 
 		widgets = {
-            'first_name': TextInput(attrs={'placeholder': 'Imie'}),
+            'first_name': TextInput(attrs={'placeholder': 'Imię'}),
         }

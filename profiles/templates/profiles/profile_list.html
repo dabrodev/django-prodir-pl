@@ -1,60 +1,81 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
 
 {% block title %}Doradcy {{ block.super }}{% endblock %}
 
 {% block content%}
-         <section id="about">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
-                                <h2>
-                                Doradcy
-                                </h2>
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
+                    <h2>
+                    Doradcy
+                    </h2>
+                    <!--<form method="get">
+                        {{ filter.form|crispy }}
+                         <button type="submit" class="btn btn-default">Szukaj</button>
+                         <a href="{% url 'profiles:list' %}" class="btn btn-default">Resetuj</a>
+                    </form>-->
 
-
-                                <p>
-                                    {% for profile in profiles %}
-                                    <div class="col-md-3 col-sm-6 profile-list-item">
-                                    {% if profile.avatar %}
-                                    <a href="{% url 'profiles:detail' pk=profile.pk %}">
-    									<img src="{{ profile.avatar.url}}" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=300></a>
-                                      
-                                    
-                                	{% else %}
-                                    <a href="{% url 'profiles:detail' pk=profile.pk %}">
-                                        <img src="{% static 'images/avatar-default.jpg' %}"  class="img-responsive" alt="{{ profile.user.get_full_name }}" width=300>
-                                    </a>
-                                   
-                              		{% endif %}    
-										<h3><a href="{% url 'profiles:detail' pk=profile.pk %}">{{ profile.user.get_full_name }}</a></h3>
-                                        {% if profile.city %}
-                                        <h4> {{ profile.city }}</h4>
-                                        {% endif %}
-										
-                                        <p class="profile-description-list">{{ profile.description|truncatewords_html:22 }}</p>
-                                       
-                                       
-										<a href="{% url 'profiles:detail' pk=profile.pk %}" class="profil-link">Przejź do profilu doradcy</a>
-										
-									
-
-
-									</div>
-
-
-										
-										
-
-                                    {% endfor %}
-                                </p>
-                          
+                    <form method="get">
+                    <div class="well">
+                        <div class="row">
+                            <div class="form-group col-md-3 col-sm-3">
+                              {{ filter.form.user__first_name.label_tag }}
+                              {% render_field filter.form.user__first_name class="form-control" %}
                             </div>
-                            
+                            <div class="form-group col-md-3 col-sm-3">
+                              {{ filter.form.user__last_name.label_tag }}
+                              {% render_field filter.form.user__last_name class="form-control" %}
+                            </div>
+                            <div class="form-group col-md-3 col-sm-3">
+                              {{ filter.form.city.label_tag }}
+                              {% render_field filter.form.city class="form-control" %}
+                            </div>
+                            <div class="form-group col-md-3 col-sm-3">
+                                <div class="filter-btns">
+                                    <button type="submit" class="btn btn-default orange">Wyszukaj</button>
+                                    <a href="{% url 'profiles:list' %}" class="btn btn-default orange">Resetuj</a>
+                                </div>
+                            </div>
                         </div>
-                        
                     </div>
+                    </form>    
+
+                    <p>
+                        {% for profile in filter.qs %}
+                        <div class="col-md-3 col-sm-6 profile-list-item">
+                        {% if profile.avatar %}
+                        <a href="{% url 'profiles:detail' pk=profile.pk %}">
+                            <img src="{{ profile.avatar.url}}" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=300></a>
+                        
+                        {% else %}
+                        <a href="{% url 'profiles:detail' pk=profile.pk %}">
+                            <img src="{% static 'images/avatar-default.jpg' %}"  class="img-responsive" alt="{{ profile.user.get_full_name }}" width=300>
+                        </a>
+                       
+                        {% endif %}    
+                            <h3><a href="{% url 'profiles:detail' pk=profile.pk %}">{{ profile.user.get_full_name }}</a></h3>
+                            {% if profile.city %}
+                            <h4> {{ profile.city }}</h4>
+                            {% endif %}
+                            
+                            <p class="profile-description-list">{{ profile.description|truncatewords_html:22 }}</p>
+                           
+                            <a href="{% url 'profiles:detail' pk=profile.pk %}" class="profil-link">Przejź do profilu doradcy</a>
+                        </div> 
+
+                        {% endfor %}
+                    </p>
+              
                 </div>
-            </section> <!-- /#about -->
+                
+            </div>
+            
+        </div>
+    </div>
+</section> <!-- /#about -->
 {% endblock %}

@@ -1,5 +1,6 @@
 
 from django.conf.urls import url
+from django.views.generic import TemplateView, RedirectView
 
 from . import views
 
@@ -9,4 +10,5 @@ urlpatterns = [
 	url(r'^(?P<pk>\d+)/$', views.profile_detail, name='detail'),
 	url(r'^(?P<pk>\d+)/edit/$', views.edit_profile, name='edit'),
 	url(r'^(?P<pk>\d+)/add_review/$', views.add_review, name='add_review'),
+	url(r'^\d+/password/$', RedirectView.as_view(pattern_name='account_change_password', permanent=False))
 ]
