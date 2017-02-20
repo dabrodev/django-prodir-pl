@@ -178,6 +178,7 @@ img#profil {
   background-attachment: fixed;
   padding: 150px 0 100px;
   color: #fff;
+  border-bottom: 1px solid #dedede;
   /*box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);*/
   position: relative;
 }
@@ -592,7 +593,7 @@ img.review {
 
 /* Button Panel */
 #top-bar .main-menu li > a.dropdown-toggle.btn-panel {
-
+  min-width: 160px;
   background-color: #fd5e29;
   color: #fff;
 }

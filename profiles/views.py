@@ -16,7 +16,7 @@ def profile_list(request):
 
 def profile_detail(request, pk):
 	profile = get_object_or_404(Profile, pk=pk)
-	return render(request, 'profiles/profile_detail.html', {'profile': profile})
+	return render(request, 'profiles/profile_detail.html', {'profile': profile,})
 
 @login_required
 def edit_profile(request, pk):

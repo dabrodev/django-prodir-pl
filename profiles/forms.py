@@ -1,3 +1,4 @@
+from django import forms
 from django.forms import ModelForm, TextInput
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
@@ -39,3 +40,5 @@ class AccountForm(UserChangeForm):
 		widgets = {
             'first_name': TextInput(attrs={'placeholder': 'Imię'}),
         }
+
+
