@@ -14,7 +14,7 @@ class ProfileFilter(django_filters.FilterSet):
 
 	class Meta:
 		model = Profile
-		fields = ['user__first_name', 'user__last_name', 'city']
+		fields = ['user__last_name', 'city']
 		labels = {
 			'user__first_name': 'Imię',
 			'user__last_name': 'Nazwisko',
