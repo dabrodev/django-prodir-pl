@@ -16,9 +16,9 @@ def contact(request):
 	
 	return render(request, 'contact.html')
 
-def priv_policy(request):
+def policy(request):
 	
-	return render(request, 'privacy-policy.html')
+	return render(request, 'policy.html')
 
 def toc(request):
 	

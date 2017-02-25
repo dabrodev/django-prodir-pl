@@ -32,6 +32,8 @@ urlpatterns = [
     url(r'^o-nas/$', views.about, name='about'),
     url(r'^kontakt/$', views.contact, name='contact'),
     url(r'^panel/$', views.panel, name='panel'),
+    url(r'^polityka-prywatnosci/$', views.policy, name='policy'),
+    url(r'^regulamin/$', views.toc, name='toc'),
 ] 
 
 urlpatterns += staticfiles_urlpatterns()
