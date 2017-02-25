@@ -4,8 +4,6 @@ from django.db.models.signals import post_save
 from django.core.exceptions import ValidationError
 
 
-# Create your models here.
-
 class Profile(models.Model):
 
 	def validate_image(fieldfile_obj):
