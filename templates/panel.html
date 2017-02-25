@@ -52,8 +52,17 @@
                                 <p>Ten doradca nie otrzymał jeszcze opini.</p>
                                 {% endif %}
                                   <a href="{% url 'profiles:detail' pk=profile.pk %}" class="btn btn-block btn-default">Zobacz wszystkie opinie na profilu</a>
-                                <h3>Wiadomości</h3>
-                                <p>W przygotowaniu...</p>
+                                <h3 >Wiadomosci({{ profile.get_inquiries.count }})</h3>
+                                {% if profile.get_inquiries %}
+                                    {% for inquiry in profile.get_inquiries|slice:":3" %}
+                                                 <ul class="item">
+                                                       <li> {{ inquiry.name }} - {{ inquiry.message|truncatewords_html:15 }}</li>  
+                                                </ul>
+                                    {% endfor %}
+                                {% else %}
+                                <p>Ten doradca nie otrzymał jeszcze wiadomości.</p>
+                                {% endif %}
+                                  <a href="{% url 'profiles:detail' pk=profile.pk %}" class="btn btn-block btn-default">Zobacz wszystkie wiadomości na profilu</a>
                             </div>    
                         </div>
                     </div>

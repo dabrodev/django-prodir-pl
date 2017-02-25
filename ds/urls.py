@@ -26,11 +26,11 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^profiles/', include('profiles.urls', namespace='profiles')),
+    url(r'^doradcy/', include('profiles.urls', namespace='profiles')),
     url(r'^accounts/profile/$', RedirectView.as_view(pattern_name='panel', permanent=False)),
     url(r'^$', views.home, name='home'),
-    url(r'^about/$', views.about, name='about'),
-    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^o-nas/$', views.about, name='about'),
+    url(r'^kontakt/$', views.contact, name='contact'),
     url(r'^panel/$', views.panel, name='panel'),
 ] 
 

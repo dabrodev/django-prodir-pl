@@ -43,6 +43,7 @@
         <script src="{% static 'js/slider.js' %}"></script>
         <!-- template main js -->
         <script src="{% static 'js/main.js' %}"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
     </head>
     <body>
         <!--
@@ -205,4 +206,10 @@
         {% block extra_body %}
         {% endblock %}   
         </body>
+        <!--<script>
+            $(function() {
+            $('.block').matchHeight();
+            });
+
+        </script>-->
     </html>

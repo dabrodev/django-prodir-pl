@@ -14,7 +14,16 @@ def about(request):
 
 def contact(request):
 	
-	return render(request, 'contact.html')	
+	return render(request, 'contact.html')
+
+def priv_policy(request):
+	
+	return render(request, 'privacy-policy.html')
+
+def toc(request):
+	
+	return render(request, 'toc.html')	
+
 
 @login_required
 def panel(request):

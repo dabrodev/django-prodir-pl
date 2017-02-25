@@ -24,6 +24,9 @@ class Profile(models.Model):
 	def get_approved_reviews(self):
 		return self.review_set.filter(approved="True")
 
+	def get_inquiries(self):
+		return self.inquiry_set.all()	
+
 	def __str__(self):
 		return self.user.get_full_name()
 
@@ -36,6 +39,14 @@ class Review(models.Model):
 	position = models.CharField(max_length=254, blank=True, null=True)
 	message = models.TextField()
 	approved = models.BooleanField(default=False)
+
+class Inquiry(models.Model):
+	profile = models.ForeignKey(Profile)
+	pub_date = models.DateTimeField(auto_now=False, auto_now_add=True)
+	name = models.CharField(max_length=254)
+	email = models.EmailField(max_length=254)
+	tel = models.CharField(max_length=254, blank=True)
+	message = models.TextField()
 
 
 def create_profile(sender, **kwargs):
