@@ -155,6 +155,11 @@ img#profil {
   transition: .3s all;
   text-transform: uppercase;
 }
+
+#top-bar .main-menu li.active a {
+  color: #fd5e29;
+} 
+
 #top-bar .main-menu li a:hover {
   color: #fd5e29;
 }

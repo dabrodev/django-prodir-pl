@@ -43,7 +43,7 @@
                                
                                 <h3 >Opinie({{ profile.get_approved_reviews.count }})</h3>
                                 {% if profile.get_approved_reviews %}
-                                    {% for review in profile.get_approved_reviews|slice:":3" %}
+                                    {% for review in profile.get_approved_reviews|slice:":6" %}
                                                  <ul class="item">
                                                        <li> {{ review.name }} - {{ review.message|truncatewords_html:15 }}</li>  
                                                 </ul>
@@ -52,7 +52,7 @@
                                 <p>Ten doradca nie otrzymał jeszcze opini.</p>
                                 {% endif %}
                                   <a href="{% url 'profiles:detail' pk=profile.pk %}" class="btn btn-block btn-default">Zobacz wszystkie opinie na profilu</a>
-                                <h3 >Wiadomosci({{ profile.get_inquiries.count }})</h3>
+                               <!-- <h3 >Wiadomosci({{ profile.get_inquiries.count }})</h3>
                                 {% if profile.get_inquiries %}
                                     {% for inquiry in profile.get_inquiries|slice:":3" %}
                                                  <ul class="item">
@@ -62,7 +62,7 @@
                                 {% else %}
                                 <p>Ten doradca nie otrzymał jeszcze wiadomości.</p>
                                 {% endif %}
-                                  <a href="{% url 'profiles:detail' pk=profile.pk %}" class="btn btn-block btn-default">Zobacz wszystkie wiadomości na profilu</a>
+                                  <a href="{% url 'profiles:detail' pk=profile.pk %}" class="btn btn-block btn-default">Zobacz wszystkie wiadomości na profilu</a>-->
                             </div>    
                         </div>
                     </div>

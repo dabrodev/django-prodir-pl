@@ -61,7 +61,6 @@
                     <span class="icon-bar"></span>
                     </button>
                     <!-- /responsive nav button -->
-                    
                     <!-- logo -->
                     <div class="navbar-brand">
                         <a href="{% url 'home' %}" >
@@ -74,12 +73,12 @@
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <div class="main-menu">
                         <ul class="nav navbar-nav navbar-right">
-                            <li>
+                            <li {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}>
                                 <a href="{% url 'home' %}" >Start</a>
                             </li>
-                            <li><a href="{% url 'profiles:list' %}">Doradcy</a></li>
-                            <li><a href="{% url 'about' %}">O nas</a></li>
-                            <li><a href="{% url 'contact' %}">Kontakt</a></li>
+                            <li {% if request.resolver_match.url_name == 'list' %}class="active"{% endif %}><a href="{% url 'profiles:list' %}">Doradcy</a></li>
+                            <li {% if request.resolver_match.url_name == 'about' %}class="active"{% endif %}><a href="{% url 'about' %}">O nas</a></li>
+                            <li {% if request.resolver_match.url_name == 'contact' %}class="active"{% endif %}><a href="{% url 'contact' %}">Kontakt</a></li>
                             {% if user.is_authenticated %}
 							  <li class="dropdown">
                                 <a href="{% url 'panel' %}" class="dropdown-toggle btn-panel">{{ user.get_full_name }} <span class="caret"></span></a>
@@ -92,22 +91,20 @@
                                 </div>
                                 </li>
                                 <li>
-                                    {% if user.profile.avatar %}
+                                {% if user.profile.avatar %}
                         
                                 <img src="{{ user.profile.avatar.url}}" id="profil-nav" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=52>
-                          
                         
-                    {% else %}
+                                {% else %}
                         
-                            <img src="{% static 'images/avatar-default.jpg' %}" id="profil-nav" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=52>
-                        
+                                <img src="{% static 'images/avatar-default.jpg' %}" id="profil-nav" class="img-responsive" alt="{{ profile.user.get_full_name }}" width=52>
                        
-                    {% endif %}  
+                                {% endif %}  
 
                                 </li>
 							    {% else %}
-							    <li><a href="{% url 'account_login' %}">Zaloguj się</a></li>
-                                <li class="dropdown">
+							    <li {% if request.resolver_match.url_name == 'account_login' %}class="active"{% endif %}><a href="{% url 'account_login' %}">Zaloguj się</a></li>
+                                <li {% if request.resolver_match.url_name == 'account_signup' %}class="dropdown active"{% else %} class="dropdown"{% endif %}>
                                     <a href="{% url 'account_signup' %}">Jesteś doradcą?</a>
                                     <div class="dropdown-menu">
                                         <ul>
@@ -140,69 +137,65 @@
             </div>
         </section>                      
 
-
-{% block content %}
-{% endblock %}
-
-
-
+        {% block content %}
+        {% endblock %}
                             
-            <!--
-            ==================================================
-            Call To Action Section
-            ================================================== -->
-            <section id="call-to-action">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="block">
-                                <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">POTRZEBUJESZ WIĘCEJ INFORMACJI?</h1>
-                                <p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms">Skontaktuj się z nami bezpośrednio, a my postaramy się<br>znaleźć odpowiedniego doradcę lub nieruchomość.</p>
-                                <a href="{% url 'contact' %}" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Kontakt</a>
-                            </div>
+        <!--
+        ==================================================
+        Call To Action Section
+        ================================================== -->
+        <section id="call-to-action">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block">
+                            <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">POTRZEBUJESZ WIĘCEJ INFORMACJI?</h1>
+                            <p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms">Skontaktuj się z nami bezpośrednio, a my postaramy się<br>znaleźć odpowiedniego doradcę lub nieruchomość.</p>
+                            <a href="{% url 'contact' %}" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Kontakt</a>
                         </div>
-                        
                     </div>
+                    
                 </div>
-            </section>
-            <!--
-            ==================================================
-            Footer Section
-            ================================================== -->
-            <footer id="footer">
-                <div class="container">
-                    <div class="col-md-8">
-                        <p class="copyright">&copy; <span>2017</span>    <a href="{% url 'home' %}" >
-                            <span style="color: #000">ZNAJDŹ</span><span style="color: #fd5e29">MI</span><span style="color: #000">DOM.</span>
-                        </a> Wszelkie prawa zastrzeżone.
-                    </div>
-                    <div class="col-md-4">
-                        <!-- Social Media -->
-                        <ul class="social">
-                            <li>
-                                <a href="#" class="Facebook">
-                                    <i class="ion-social-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="Twitter">
-                                    <i class="ion-social-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="Linkedin">
-                                    <i class="ion-social-linkedin"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="Google Plus">
-                                    <i class="ion-social-googleplus"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            </div>
+        </section>
+        <!--
+        ==================================================
+        Footer Section
+        ================================================== -->
+        <footer id="footer">
+            <div class="container">
+                <div class="col-md-8">
+                    <p class="copyright">&copy; <span>2017</span>    <a href="{% url 'home' %}" >
+                        <span style="color: #000">ZNAJDŹ</span><span style="color: #fd5e29">MI</span><span style="color: #000">DOM.</span>
+                    </a> Wszelkie prawa zastrzeżone.
                 </div>
-            </footer> <!-- /#footer -->
+                <div class="col-md-4">
+                    <!-- Social Media -->
+                    <ul class="social">
+                        <li>
+                            <a href="#" class="Facebook">
+                                <i class="ion-social-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="Twitter">
+                                <i class="ion-social-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="Linkedin">
+                                <i class="ion-social-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="Google Plus">
+                                <i class="ion-social-googleplus"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer> <!-- /#footer -->
         {% block extra_body %}
         {% endblock %}   
         </body>
