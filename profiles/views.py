@@ -70,7 +70,7 @@ def add_review(request, pk):
 			subject="Nowa opinia na %s" % \
 				'ZnajdźMiDom',
 			message=company,
-			from_email='no-reply@znajdzmidom.pl',
+			from_email='no-reply@damiandab.com',
 			recipient_list=[
 				profile.user.email,
 			],
