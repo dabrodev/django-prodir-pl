@@ -35,9 +35,6 @@ class ContactForm(forms.Form):
 		required=True,
 	)
 
-	def __init__(self, request, *args, **kwargs):
-		super(MessageForm, self).__init__(*args, **kwargs)
-		self.request = request
 		
 
 	def save(self):
@@ -51,4 +48,11 @@ class ContactForm(forms.Form):
 				'dabdamian@gmail.com',
 			],
 			fail_silently=True,
-		)        
+		)  
+
+class MainContactForm(forms.Form):
+    contact_name = forms.CharField(label= "Imię i nazwisko")
+    contact_email = forms.EmailField(label="E-Mail")
+    contact_phone = forms.CharField(required=False, label= "Telefon")
+    contact_message = forms.CharField(label= "Wiadomość", widget=forms.Textarea)
+

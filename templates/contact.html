@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
+{% load crispy_forms_tags %}
 
 {% block title %}Kontakt {{ block.super }}{% endblock %}
 
@@ -7,21 +8,20 @@
          <section id="page" class="pico">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-6 col-sm-12 vbottom">
                             <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
                                 <h2>
                                Kontakt
                                 </h2>
-                                <p>
-                                    Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki. Pięć wieków później zaczął być używany przemyśle elektronicznym, pozostając praktycznie niezmienionym. 
-                                </p>
-                                <p>
-                                    Spopularyzował się w latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem Ipsum.
-                                </p>
+                                <form role="form" action="" method="post">
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
+                                    <button type="submit" class="btn btn-default" style="margin-bottom: 20px;">Wyślij wiadomość</button>
+                                </form>
                             </div>
                             
-                        </div>
-                        <div class="col-md-6 col-sm-6">
+                        </div><!--
+                        --><div class="col-md-6 col-sm-12 vbottom">
                             <div class="block wow fadeInRight" data-wow-delay=".3s" data-wow-duration="500ms">
                                 <img src="{% static 'images/zmd-formularz.jpg' %}" alt="">
                             </div>
