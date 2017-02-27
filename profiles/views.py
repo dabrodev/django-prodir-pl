@@ -11,7 +11,7 @@ from .filters import ProfileFilter
 
 # Create your views here.
 def profile_list(request):
-	profile_list = Profile.objects.filter(city__gt='', description__gt='')
+	profile_list = Profile.objects.filter(city__gt='', description__gt='').order_by('?')
 	profile_filter = ProfileFilter(request.GET, queryset=profile_list)
 	return render(request, 'profiles/profile_list.html', {'filter': profile_filter})
 

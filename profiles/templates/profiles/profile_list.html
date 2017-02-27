@@ -47,7 +47,7 @@
                     </form>    
 
                     <p>
-                        {% for profile in filter.qs %}
+                        {% for profile in filter.qs|slice:":24" %}
                         <div class="col-md-3 col-sm-6 profile-list-item">
                         {% if profile.avatar %}
                         <a href="{% url 'profiles:detail' pk=profile.pk %}">
