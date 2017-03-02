@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %}O Nas {{ block.super }}{% endblock %}
+
+{% block content%}
+         <section id="page" class="pico">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-12 vbottom">
+                            <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
+                                <h2>
+                                O nas
+                                </h2>
+                                
+                                <p>
+                                    Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki. Pięć wieków później zaczął być używany przemyśle elektronicznym, pozostając praktycznie niezmienionym. 
+                                </p>
+                                <p>
+                                    Spopularyzował się w latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem Ipsum.
+                                </p>
+                            </div>
+                            
+                        </div><!--
+                        --><div class="col-md-7 col-sm-12 vbottom">
+                            <div class="block wow fadeInRight" data-wow-delay=".3s" data-wow-duration="500ms">
+                            <p></p>
+                                <img
+        border:0;" src="{% static 'images/zdm-doradcy.jpg' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> <!-- /#about -->
+{% endblock %}

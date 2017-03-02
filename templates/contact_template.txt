@@ -1,0 +1,12 @@
+
+Imię i Nazwisko:
+{{ contact_name }}
+
+Email:
+{{ contact_email }}
+
+Telefon:
+{{ contact_phone }}
+
+Wiadomość:
+{{ contact_message|safe|striptags }}

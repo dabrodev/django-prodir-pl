@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Home {{ block.super }}{% endblock %}
+
+{% block content%}
+       <!--
+        ==================================================
+        Hero Section
+        ================================================== -->
+        <section id="hero-area" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="block wow fadeInUp" data-wow-delay=".3s">
+                            
+                            <!-- Hero -->
+                            <section class="cd-intro">
+	                            <h1 class="wow fadeInUp animated cd-headline slide" data-wow-delay=".4s" >
+		                            <span>3 KROKI DO TWOJEGO</span><br>
+		                            <span class="cd-words-wrapper">
+		                                <b class="is-visible">DOMU</b>
+		                                <b>MIESZKANIA</b>
+		                                <b>LOKALU</b>
+		                            </span>
+	                            </h1>
+                            </section> 
+                               
+                            <h2 class="wow fadeInUp animated" data-wow-delay=".6s" >
+                                Wybierz doradcę, wypełnij formularz i otrzymaj najlepsze oferty.<br> Tylko profejsonalny doradca zapewni Tobie pewny i bezpieczny zakup nieruchomości.
+                            </h2>
+                            <a class="btn-lines dark light wow fadeInUp animated btn btn-default" data-wow-delay=".9s" href="{% url 'profiles:list' %}">Wybierz doradcę</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="service-page" class="pages service-page"> 
+              <div class="container">
+				<div class="row service-parts">
+	                <div class="col-md-4">
+	                    <div class="block wow fadeInUp animated" data-wow-duration="400ms" data-wow-delay="600ms">
+	                        <i class="ion-ios-person-outline"></i>
+	                        <h4>WYBIERZ DORADCĘ</h4>
+	                        <p>Znajdź swojego doradcę po lokalizacji i typie nieruchomości.</p>
+	                    </div>
+	                </div>
+	                <div class="col-md-4">
+	                    <div class="block wow fadeInUp animated" data-wow-duration="400ms" data-wow-delay="800ms">
+	                        <i class="ion-ios-compose-outline"></i>
+	                        <h4>WYPEŁNIJ FORMULARZ</h4>
+	                        <p>Wypełnij formularz z typem nieruchomości i wszystkimi jej szczegółami.</p>
+	                    </div>
+	                </div>
+	                <div class="col-md-4">
+	                    <div class="block wow fadeInUp animated" data-wow-duration="400ms" data-wow-delay="1s">
+	                        <i class="ion-ios-paper-outline"></i>
+	                        <h4>OTRZYMAJ OFERTĘ</h4>
+	                        <p>Indiwidualnie ułożona oferta zostanie przygotowana specjalnie dla Ciebie.</p>
+	                    </div>
+	                </div>
+	            </div>
+	          </div>  
+            </section>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Panel{{ block.super }}{% endblock %}
+
+{% block content%}
+         <section id="page">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="block wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
+                                <h2>Panel</h2>
+                            </div>
+                        </div>
+                    </div>        
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
+                               
+                                {% if user == request.user %}
+                                <h3>Witaj {{ user.get_full_name }}  </h3>
+                                <p>
+									Zakładając konto jako doradca nieruchmości na platformie ZnajdźMiDom otrzymujesz do dyspozycji profil doradcy, formularz kontaktowy oraz system opini, które mogą być dodane przez klientów.
+                                </p>
+                                <p>
+                                    Tylko pełne profile zawierające komplet danych zostaną wyświetlone w dziale Doradcy, dlatego polecamy jak najszybsze wypełnienie profilu. 
+                                </p>
+                              
+                                
+                                    <a href="{% url 'profiles:detail' pk=profile.pk %}" class="btn btn-block btn-default">Przejdź do profilu</a>
+                                
+                                    <p></p>    
+                                
+                                    <a href="{% url 'profiles:edit' pk=profile.pk %}" class="btn btn-block btn-default">Przejdź do edycji profilu</a>
+                                
+                                {% endif %}
+
+
+                            </div>          
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="block wow fadeInRight" data-wow-delay=".3s" data-wow-duration="500ms">
+                               
+                                <h3 >Opinie({{ profile.get_approved_reviews.count }})</h3>
+                                {% if profile.get_approved_reviews %}
+                                    {% for review in profile.get_approved_reviews|slice:":6" %}
+                                                 <ul class="item">
+                                                       <li> {{ review.name }} - {{ review.message|truncatewords_html:15 }}</li>  
+                                                </ul>
+                                    {% endfor %}
+                                {% else %}
+                                <p>Ten doradca nie otrzymał jeszcze opini.</p>
+                                {% endif %}
+                                  <a href="{% url 'profiles:detail' pk=profile.pk %}" class="btn btn-block btn-default">Zobacz wszystkie opinie na profilu</a>
+                               <!-- <h3 >Wiadomosci({{ profile.get_inquiries.count }})</h3>
+                                {% if profile.get_inquiries %}
+                                    {% for inquiry in profile.get_inquiries|slice:":3" %}
+                                                 <ul class="item">
+                                                       <li> {{ inquiry.name }} - {{ inquiry.message|truncatewords_html:15 }}</li>  
+                                                </ul>
+                                    {% endfor %}
+                                {% else %}
+                                <p>Ten doradca nie otrzymał jeszcze wiadomości.</p>
+                                {% endif %}
+                                  <a href="{% url 'profiles:detail' pk=profile.pk %}" class="btn btn-block btn-default">Zobacz wszystkie wiadomości na profilu</a>-->
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </section>
+{% endblock %}
