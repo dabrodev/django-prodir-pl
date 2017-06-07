@@ -25,7 +25,7 @@
                     <li {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}>
                         <a href="{% url 'home' %}" >Start</a>
                     </li>
-                    <li {% if request.resolver_match.url_name == 'list' %}class="active"{% endif %}><a href="{% url 'profiles:list' %}">Doradcy</a></li>
+                    <li {% if request.resolver_match.url_name == 'list' %}class="active"{% endif %}><a href="{% url 'profiles:list' %}">Pośrednicy</a></li>
                     <li {% if request.resolver_match.url_name == 'about' %}class="active"{% endif %}><a href="{% url 'about' %}">O nas</a></li>
                     <li {% if request.resolver_match.url_name == 'contact' %}class="active"{% endif %}><a href="{% url 'contact' %}">Znajdź mi...</a></li>
                     {% if user.is_authenticated %}
