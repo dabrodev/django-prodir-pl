@@ -41,8 +41,7 @@ class InquiryForm(ModelForm):
 			'email': 'E-Mail',
 			'tel': 'Telefon',
 			'message': 'Wiadomość',
-		}		
-
+		}
 
 
 class AccountForm(UserChangeForm):

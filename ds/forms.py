@@ -30,7 +30,7 @@ class ContactForm(forms.Form):
 	)
 
 	message = forms.CharField(
-		label="Wiadomość",
+		label="Wiadomość(opisz w killku zdaniach nieruchmość)",
 		widget=forms.Textarea,
 		required=True,
 	)
@@ -54,5 +54,5 @@ class MainContactForm(forms.Form):
     contact_name = forms.CharField(label= "Imię i nazwisko")
     contact_email = forms.EmailField(label="E-Mail")
     contact_phone = forms.CharField(required=False, label= "Telefon")
-    contact_message = forms.CharField(label= "Wiadomość", widget=forms.Textarea)
+    contact_message = forms.CharField(label= "Wiadomość(opisz w killku zdaniach nieruchomość)", widget=forms.Textarea)
 
