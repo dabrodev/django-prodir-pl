@@ -1,2 +1,2 @@
 {% load i18n %}
-{% blocktrans %}E-mail {{email}} został potwierdzony. Możesz się teraz zalogować i w pełni korzystać z serwisu Idealny Pośrednik.{% endblocktrans %}
+{% blocktrans %}E-mail {{email}} został potwierdzony. Możesz teraz w pełni korzystać z serwisu Idealny Pośrednik.{% endblocktrans %}
