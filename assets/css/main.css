@@ -36,7 +36,6 @@ ul li {
   color: #727272;
   line-height: 28px;
   font-weight: 300;
-  padding-left: 20px;
 
 }
 h2 {
@@ -664,7 +663,7 @@ img.review {
 
 
 
-
+/*
 @media (min-width: 768px) {
   .navbar-nav>li>a {
       padding-top: 15px;
@@ -674,4 +673,4 @@ img.review {
       text-align: left;
   }
 
-}
+}*/
