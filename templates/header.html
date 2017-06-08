@@ -13,7 +13,7 @@
             <!-- logo -->
             <div class="navbar-brand">
                 <a href="{% url 'home' %}" >
-                    <span style="color: #000">ZNAJDŹ</span><span style="color: #fd5e29">MI</span><span style="color: #000">DOM</span>
+                    <span style="color: #000; font-weight: 400;">IDEALNY</span><span style="color: #fd5e29; font-weight: 400;"> POŚREDNIK</span>
                 </a>
             </div>
             <!-- /logo -->
@@ -27,7 +27,7 @@
                     </li>
                     <li {% if request.resolver_match.url_name == 'list' %}class="active"{% endif %}><a href="{% url 'profiles:list' %}">Pośrednicy</a></li>
                     <li {% if request.resolver_match.url_name == 'about' %}class="active"{% endif %}><a href="{% url 'about' %}">O nas</a></li>
-                    <li {% if request.resolver_match.url_name == 'contact' %}class="active"{% endif %}><a href="{% url 'contact' %}">Znajdź mi...</a></li>
+                    <li {% if request.resolver_match.url_name == 'contact' %}class="active"{% endif %}><a href="{% url 'contact' %}">Otrzymaj darmowe oferty</a></li>
                     {% if user.is_authenticated %}
 					  <li class="dropdown">
                         <a href="{% url 'panel' %}" class="dropdown-toggle btn-panel">{{ user.get_full_name }} <span class="caret"></span></a>
