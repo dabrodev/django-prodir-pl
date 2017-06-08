@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+{% block content %}
+<section id="page" class="pico">
+	<div class="container">
+	    <div class="row">
+	        <div class="col-md-8 col-md-offset-2 col-sm-12 vbottom">
+	            <div class="block wow fadeInLeft" data-wow-delay=".3s" data-wow-duration="500ms">
+	                <h2>{% trans "Verify Your E-mail Address" %}</h2>
+    				<p>{% blocktrans %}Wysłaliśmy Tobie e-mail w celu weryfikacji. Prosimy kliknąć na link zawarty w mailu i potwierdzić e-mail. Prosimy o kontakt w razie nie otrzymania e-maila w ciągu kilku minut.{% endblocktrans %}</p>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+</section>    				
+{% endblock %}
