@@ -25,7 +25,7 @@ SECRET_KEY = '@u$vnl+tuai47strr+11^l(*snk96@*axii^qv%-hav+us2li!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['boiling-stream-48850.herokuapp.com', '127.0.0.1',]
+ALLOWED_HOSTS = ['boiling-stream-48850.herokuapp.com', '127.0.0.1','www.idealnyposrednik.pl', 'idealnyposrednik.pl']
 
 
 import os
