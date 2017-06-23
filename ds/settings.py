@@ -37,11 +37,11 @@ secret_key = os.environ["secret_key"]
 
 #heroku config:set SOME_SECRET_KEY=...
 
-DEFAULT_FROM_EMAIL='admin@damiandab.com' # or webmaster@servername
-SERVER_EMAIL='admin@damiandab.com' # or 'root@servername'
+DEFAULT_FROM_EMAIL='biuro@idealnyposrednik.pl' # or webmaster@servername
+SERVER_EMAIL='postmaster@idealnyposrednik.pl' # or 'root@servername'
 EMAIL_HOST = 'smtp.elasticemail.com'
 EMAIL_HOST_USER = 'dabdamian@gmail.com'
-EMAIL_MAIN = 'admin@damiandab.com'
+EMAIL_MAIN = 'biuro@idealnyposrednik.pl'
 EMAIL_HOST_PASSWORD = EM_SECRET_KEY
 EMAIL_PORT = 2525
 EMAIL_USER_TLS = True
