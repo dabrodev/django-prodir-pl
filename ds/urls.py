@@ -26,7 +26,7 @@ from . import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^doradcy/', include('profiles.urls', namespace='profiles')),
+    url(r'^posrednicy/', include('profiles.urls', namespace='profiles')),
     url(r'^accounts/profile/$', RedirectView.as_view(pattern_name='panel', permanent=False)),
     url(r'^$', views.home, name='home'),
     url(r'^o-nas/$', views.about, name='about'),
