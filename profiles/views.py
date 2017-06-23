@@ -68,9 +68,9 @@ def add_review(request, pk):
 			messages.success(request, 'Opinia dodana. Pojawi się na profilu po zatwierdzeniu przez administratora.')
 			send_mail(
 			subject="Nowa opinia na %s" % \
-				'ZnajdźMiDom',
+				'Idealny Pośrednik',
 			message=company,
-			from_email='no-reply@damiandab.com',
+			from_email='biuro@idealnyposrednik.pl',
 			recipient_list=[
 				profile.user.email,
 			],

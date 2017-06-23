@@ -96,9 +96,9 @@ class MessageForm(forms.Form):
 			subject=ugettext("A message from %s") % \
 				'ZnajdźMiDom',
 			message=cleaned_data["message"],
-			from_email='no-reply@znajdzmidom.pl',
+			from_email='biuro@idealnyposrednik.pl',
 			recipient_list=[
-				'dabdamian@gmail.com',
+				'biuro@idealnyposrednik.pl',
 			],
 			fail_silently=True,
 		)

@@ -30,7 +30,7 @@ class ContactForm(forms.Form):
 	)
 
 	message = forms.CharField(
-		label="Wiadomość(opisz w killku zdaniach nieruchmość)",
+		label="Wiadomość(opisz w killku zdaniach nieruchomość)",
 		widget=forms.Textarea,
 		required=True,
 	)
@@ -41,11 +41,11 @@ class ContactForm(forms.Form):
 		cleaned_data = self.cleaned_data
 		send_mail(
 			subject=ugettext("A message from %s") % \
-				'ZnajdźMiDom',
+				'Idealny Pośrednik',
 			message=cleaned_data["message"],
-			from_email='no-reply@znajdzmidom.pl',
+			from_email='biuro@idealnypośrednik',
 			recipient_list=[
-				'dabdamian@gmail.com',
+				'biuro@idealnyposrednik.pl',
 			],
 			fail_silently=True,
 		)  
